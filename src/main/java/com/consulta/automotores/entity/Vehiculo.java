@@ -1,13 +1,16 @@
 package com.consulta.automotores.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+@Entity(name = "Vehiculo")
+@Table(name = "vehiculos")
 @Getter
 @Setter
-@Entity
-@Table(name = "vehiculos")
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+
 public class Vehiculo {
     @Id
     @Column(name = "id", nullable = false)

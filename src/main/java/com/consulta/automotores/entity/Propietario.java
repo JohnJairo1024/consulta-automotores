@@ -1,18 +1,18 @@
 package com.consulta.automotores.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
+@Entity(name = "Propietario")
+@Table(name = "propietario")
 @Getter
 @Setter
-@Entity
-@Table(name = "propietario")
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Propietario {
     @Id
     @Column(name = "id", nullable = false)
@@ -35,5 +35,11 @@ public class Propietario {
 
     @Column(name = "estado_civil", length = 15)
     private String estadoCivil;
+
+    @OneToMany(mappedBy = "propietario")
+    private Set<HistorialPropietario> historialPropietarios;
+
+    @OneToMany(mappedBy = "propietario")
+    private Set<Vehiculo> vehiculos;
 
 }

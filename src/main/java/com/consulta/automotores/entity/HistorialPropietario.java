@@ -1,15 +1,17 @@
 package com.consulta.automotores.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
+@Entity(name = "HistorialPropietario")
+@Table(name = "historial_propietario")
 @Getter
 @Setter
-@Entity
-@Table(name = "historial_propietario")
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class HistorialPropietario {
     @Id
     @Column(name = "id", nullable = false)
